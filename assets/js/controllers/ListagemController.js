@@ -60,13 +60,11 @@ class ListagemController {
     }
 
     preencherFiltros(veiculos) {
-        // Preencher filtro de marcas
         const marcas = [...new Set(veiculos.map(v => v.marca))];
         this.filtroMarca.innerHTML += marcas.map(marca => 
             `<option value="${marca}">${marca}</option>`
         ).join('');
 
-        // Preencher filtro de tipos
         const tipos = [...new Set(veiculos.map(v => v.tipo))];
         this.filtroTipo.innerHTML += tipos.map(tipo => 
             `<option value="${tipo}">${tipo}</option>`
@@ -119,7 +117,6 @@ class ListagemController {
     }
 }
 
-// Inicializar o controller
 document.addEventListener('DOMContentLoaded', () => {
     new ListagemController();
 }); 

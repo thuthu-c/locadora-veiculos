@@ -6,7 +6,6 @@ class VeiculoService {
 
     async buscarVeiculos() {
         try {
-            // Primeiro tenta pegar do localStorage
             const veiculosStorage = localStorage.getItem(this.STORAGE_KEY);
             
             if (veiculosStorage) {
@@ -14,15 +13,12 @@ class VeiculoService {
                 return JSON.parse(veiculosStorage);
             }
 
-            // Se não encontrar no localStorage, busca da API
             console.log('Buscando veículos da API...');
             const response = await fetch(this.API_URL);
             const data = await response.json();
             
-            // Converter dados da API para o formato de veículos
             const veiculos = this.converterDadosAPI(data);
             
-            // Salvar no localStorage
             console.log('Salvando veículos no localStorage:', veiculos);
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(veiculos));
             

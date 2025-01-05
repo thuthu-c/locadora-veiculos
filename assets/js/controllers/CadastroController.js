@@ -21,7 +21,6 @@ class CadastroController {
     }
 
     configurarValidacoes() {
-        // Previne a submissão do form se houver campos inválidos
         this.form.addEventListener('submit', (event) => {
             if (!this.form.checkValidity()) {
                 event.preventDefault();
@@ -30,7 +29,6 @@ class CadastroController {
             this.form.classList.add('was-validated');
         }, false);
 
-        // Validação customizada para o ano
         const anoInput = document.getElementById('anoFabricacao');
         anoInput.addEventListener('input', () => {
             const anoAtual = new Date().getFullYear();
@@ -43,7 +41,6 @@ class CadastroController {
             }
         });
 
-        // Validação da URL da imagem
         const urlInput = document.getElementById('urlImagem');
         urlInput.addEventListener('input', () => {
             try {
@@ -105,7 +102,6 @@ class CadastroController {
         alertElement.innerHTML = alertHTML;
         this.form.parentElement.insertBefore(alertElement, this.form);
 
-        // Remove o alerta após 3 segundos
         setTimeout(() => {
             alertElement.querySelector('.alert').classList.remove('show');
             setTimeout(() => alertElement.remove(), 150);
@@ -126,7 +122,6 @@ class CadastroController {
     }
 }
 
-// Inicializar o controller
 document.addEventListener('DOMContentLoaded', () => {
     new CadastroController();
 }); 
