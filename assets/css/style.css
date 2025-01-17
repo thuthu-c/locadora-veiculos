@@ -108,13 +108,17 @@ main {
 
 .social-icons a {
     color: white;
-    margin-right: 1rem;
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
     color: var(--secondary-color);
+}
+
+.social-icons {
+    min-width: 100px;
+    justify-content: space-between
 }
 
 /* Estilos para a página de listagem */
